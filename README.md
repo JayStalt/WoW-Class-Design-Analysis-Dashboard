@@ -1,55 +1,126 @@
-# WoW Retail Community Dashboard (Two-Phase Version)
+# WoW Retail Class & Spec Sentiment Analysis Dashboard
 
-This version is built to work **without Reddit API access first**.
+This project is a data-driven analytics tool designed to evaluate community sentiment around World of Warcraft retail classes and specializations. It processes player discussion data, extracts gameplay themes, and generates actionable insights and design recommendations to support informed game balance decisions.
 
-## Phase 1
-Run the project using local sample discussion data in `data/sample_reddit_posts.json`.
+## Features
 
-## Phase 2
-Later, plug live Reddit collection into `src/collectors/reddit_collector.py` once your Reddit app works.
+- Sentiment analysis of player discussions  
+- Theme extraction (damage, survivability, utility, mobility, etc.)  
+- Role-based comparison (Tank, Healer, DPS)  
+- Popularity versus sentiment analysis  
+- Time-based sentiment trends  
+- Automated design insights  
+- Automated balance recommendations  
 
-## Install
-```bash
-pip install pandas openpyxl matplotlib python-dotenv
-```
+## Outputs
 
-## Run
-```bash
-python src/main.py
-```
+### Excel Dashboard  
+Generated at: `out/wow_retail_dashboard.xlsx`
 
-Optional:
-```bash
-python src/main.py --input data/sample_reddit_posts.json --outdir out
-```
+Includes:
+- Overview metrics  
+- Class and specialization summaries  
+- Role comparisons  
+- Theme breakdowns  
+- Time trends  
+- Design insights  
+- Design recommendations  
+- Embedded visualizations  
+
+### Interactive Web Application (Streamlit)
+
+- Filtering by class, specialization, role, and source  
+- Interactive Plotly visualizations  
+- Downloadable filtered datasets  
+
+## Why This Matters
+
+Game balance decisions often rely on a combination of internal metrics and player feedback. However, large-scale community sentiment is difficult to analyze manually. This project demonstrates how player discussions can be structured, analyzed at scale, and translated into actionable design improvements.
+
+## Architecture
+
+Data Sources → Collectors → Processing → Analysis → Visualization
+
+- Collectors: Blizzard forums, JSON ingestion  
+- Processing: sentiment scoring, theme detection  
+- Analysis: aggregation, trends, role comparisons  
+- Output: Excel dashboard and Streamlit web application  
+
+## Technology Stack
+
+- Python  
+- Pandas  
+- Matplotlib  
+- Plotly  
+- Streamlit  
+- Requests  
+- BeautifulSoup  
+- OpenPyXL  
 
 ## Project Structure
-```text
-wow_reddit_dashboard_refactor/
+
+```
+WoW-Class-Design-Analysis-Dashboard/
 ├── data/
-│   ├── sample_reddit_posts.json
-│   └── processed/
 ├── out/
 ├── src/
 │   ├── collectors/
-│   │   ├── file_collector.py
-│   │   └── reddit_collector.py
 │   ├── analysis/
-│   │   ├── sentiment.py
-│   │   ├── themes.py
-│   │   └── summaries.py
 │   ├── dashboard/
-│   │   ├── charts.py
-│   │   └── excel_export.py
+│   ├── app.py
 │   └── main.py
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
-## Output
-- `out/wow_retail_dashboard.xlsx`
-- `out/charts/*.png`
+## How to Run
 
-## Notes
-- Retail-only starter sample data is included.
-- Replace the sample JSON with your own exported posts/comments whenever you want.
-- Reddit collector is left as a stub on purpose until API access is available.
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Run the CLI dashboard:
+```bash
+python src/main.py --input data/blizzard_auto_threads.json
+```
+
+Run the web application:
+```bash
+streamlit run src/app.py
+```
+
+## Data Sources
+
+- Blizzard World of Warcraft class forums (auto-collected)  
+- Local JSON datasets  
+- Optional Reddit integration (future enhancement)  
+
+## Future Improvements
+
+- Live Reddit API integration  
+- Improved natural language processing (complaint versus praise detection)  
+- Patch-based sentiment tracking  
+- Specialization detection from full text  
+- Real-time dashboard updates  
+- Deployment as a hosted web application  
+
+## Project Purpose
+
+This project demonstrates:
+- Data-driven game design analysis  
+- Large-scale sentiment processing  
+- Analytical pipeline development  
+- Translation of player feedback into actionable design decisions  
+
+## Screenshots
+
+Recommended additions:
+- Excel dashboard overview  
+- Streamlit application interface  
+- Design recommendations output  
+- Visualization examples  
+
+## License
+
+MIT License
