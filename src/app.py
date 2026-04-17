@@ -39,7 +39,7 @@ def filter_df(
     if selected_roles:
         out = out[out["role"].isin(selected_roles)]
     if selected_sources:
-        out = out[out["subreddit"].isin(selected_sources)]
+        out = out[out["source"].isin(selected_sources)]
 
     return out
 
@@ -148,7 +148,7 @@ def make_spec_sentiment_chart(spec_summary: pd.DataFrame):
 def main() -> None:
     st.title("WoW Class & Spec Community Analysis Dashboard")
 
-    default_path = "data/sample_reddit_posts.json"
+    default_path = "data/blizzard_auto_threads.json"
     input_path = st.sidebar.text_input("Input JSON Path", value=default_path)
 
     try:
@@ -162,7 +162,7 @@ def main() -> None:
     all_classes = sorted(df["wow_class"].dropna().unique().tolist())
     all_specs = sorted(df["spec"].dropna().unique().tolist())
     all_roles = sorted(df["role"].dropna().unique().tolist())
-    all_sources = sorted(df["subreddit"].dropna().unique().tolist())
+    all_sources = sorted(df["source"].dropna().unique().tolist())
 
     selected_classes = st.sidebar.multiselect("Class", all_classes)
     selected_specs = st.sidebar.multiselect("Spec", all_specs)

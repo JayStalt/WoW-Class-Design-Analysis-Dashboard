@@ -115,11 +115,20 @@ This project demonstrates:
 
 ## Screenshots
 
-Recommended additions:
-- Excel dashboard overview  
-- Streamlit application interface  
-- Design recommendations output  
-- Visualization examples  
+### Overview
+![Overview](screenshots/overview.png)
+
+### Sentiment Analysis
+![Sentiment](screenshots/sentiment_chart.png)
+
+### Popularity vs Sentiment
+![Popularity](screenshots/popularity_vs_sentiment.png)
+
+### Role vs Theme Heatmap
+![Heatmap](screenshots/heatmap.png)
+
+### Design Recommendations
+![Recommendations](screenshots/recommendations.png) 
 
 ## License
 
